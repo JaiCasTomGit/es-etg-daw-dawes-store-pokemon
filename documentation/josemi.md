@@ -1,0 +1,1 @@
+En la parte de **service** voy a meter el request y el response de un pokemon
