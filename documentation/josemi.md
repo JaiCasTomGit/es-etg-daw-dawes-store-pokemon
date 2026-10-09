@@ -1,1 +1,1 @@
-En la parte de **service** voy a meter el request y el response de un pokemon
+En la parte de **service** voy a meter el request y el response de un pokemon para cuando queramos pedirlos desde fuera en la infraestructure
