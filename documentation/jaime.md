@@ -6,4 +6,6 @@ Se han añadido las distintos directorios con sus clases correspondientes dentro
 
 Estos son .../command .../service ../usecase, dentro de estos respectivamente se hacen las clases CreatePokemonCommand, CreatePokemonService y CreatePokemonUseCase.
 
-Dentro de la infraestructura creo el mapper de la aplicación para transformar las clases.(Continuar documentacion en el futuro)
+Dentro de la infraestructura creo el mapper de la aplicación para transformar las clases.
+
+Creo el formulario html para que la aplicación pueda funcionar para poder realizar pruebas.
