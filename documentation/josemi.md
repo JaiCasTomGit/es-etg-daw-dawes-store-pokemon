@@ -1,1 +1,2 @@
-En la parte de **service** voy a meter el request y el response de un pokemon para cuando queramos pedirlos desde fuera en la infraestructure
+En la parte de **service** voy a meter el request y el response de un pokemon para cuando queramos pedirlos desde fuera en la infraestructure  
+PokemonController--> /mvc dentro de /web e /infraestructure
