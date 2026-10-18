@@ -1,10 +1,10 @@
-package es.etg.daw.dawes.store.infraestructure.config;
+package es.etg.daw.dawes.store.pokemon.infraestructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import es.etg.daw.dawes.store.application.service.CreatePokemonService;
-import es.etg.daw.dawes.store.application.usecase.CreatePokemonUseCase;
+import es.etg.daw.dawes.store.pokemon.application.service.CreatePokemonService;
+import es.etg.daw.dawes.store.pokemon.application.usecase.CreatePokemonUseCase;
 import lombok.RequiredArgsConstructor;
 
 @Configuration

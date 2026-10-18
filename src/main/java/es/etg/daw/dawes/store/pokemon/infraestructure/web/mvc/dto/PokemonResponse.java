@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.store.infraestructure.web.mvc.dto;
+package es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.dto;
 
 import java.time.LocalDateTime;
 

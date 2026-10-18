@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.store.domain.model;
+package es.etg.daw.dawes.store.pokemon.domain.model;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,10 @@
-package es.etg.daw.dawes.store.application.service;
+package es.etg.daw.dawes.store.pokemon.application.service;
 
 import org.springframework.stereotype.Service;
 
-import es.etg.daw.dawes.store.application.command.CreatePokemonCommand;
-import es.etg.daw.dawes.store.application.usecase.CreatePokemonUseCase;
-import es.etg.daw.dawes.store.domain.model.Pokemon;
+import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
+import es.etg.daw.dawes.store.pokemon.application.usecase.CreatePokemonUseCase;
+import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor 

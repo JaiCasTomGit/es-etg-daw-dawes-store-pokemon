@@ -1,17 +1,16 @@
-package es.etg.daw.dawes.store.infraestructure.web.mvc.controller;
+package es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import es.etg.daw.dawes.store.application.command.CreatePokemonCommand;
-import es.etg.daw.dawes.store.application.service.CreatePokemonService;
-import es.etg.daw.dawes.store.domain.model.Pokemon;
-import es.etg.daw.dawes.store.infraestructure.mapper.PokemonMapper;
-import es.etg.daw.dawes.store.infraestructure.web.mvc.dto.PokemonRequest;
+import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
+import es.etg.daw.dawes.store.pokemon.application.service.CreatePokemonService;
+import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
+import es.etg.daw.dawes.store.pokemon.infraestructure.mapper.PokemonMapper;
+import es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.dto.PokemonRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller 

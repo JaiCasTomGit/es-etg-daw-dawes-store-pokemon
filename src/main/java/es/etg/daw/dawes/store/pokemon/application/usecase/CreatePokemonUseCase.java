@@ -1,9 +1,9 @@
-package es.etg.daw.dawes.store.application.usecase;
+package es.etg.daw.dawes.store.pokemon.application.usecase;
 
 import java.time.LocalDateTime;
 
-import es.etg.daw.dawes.store.application.command.CreatePokemonCommand;
-import es.etg.daw.dawes.store.domain.model.Pokemon;
+import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
+import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 
 public class CreatePokemonUseCase {
 

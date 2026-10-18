@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.store.application.command;
+package es.etg.daw.dawes.store.pokemon.application.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
