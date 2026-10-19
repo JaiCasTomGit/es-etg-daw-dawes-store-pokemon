@@ -13,3 +13,5 @@ Creo el formulario html para que la aplicación pueda funcionar para poder reali
 Se crea el caso de uso FindPokemonUseCase, esta lista simulará que hay Pokémon en nuestra base de datos aunque no tengamos una. Por lo que en el futuro, cuando se añada una BBDD deberia leer estos.
 
 Posteriormente creo el servicio FindPokemonService, este tras la llamada del servicio desde el controlador inicializa el caso de uso para que devuelva los datos de la lista.
+
+En PokemonController creo un nuevo atributo para el servicio añadido
