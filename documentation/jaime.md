@@ -9,3 +9,6 @@ Estos son .../command .../service ../usecase, dentro de estos respectivamente se
 Dentro de la infraestructura creo el mapper de la aplicación para transformar las clases.
 
 Creo el formulario html para que la aplicación pueda funcionar para poder realizar pruebas.
+
+Se crea el caso de uso FindPokemonUseCase, esta lista simulará que hay Pokémon en nuestra base de datos aunque no tengamos una. Por lo que en el futuro, cuando se añada una BBDD deberia leer estos.
+
