@@ -15,3 +15,5 @@ Se crea el caso de uso FindPokemonUseCase, esta lista simulará que hay Pokémon
 Posteriormente creo el servicio FindPokemonService, este tras la llamada del servicio desde el controlador inicializa el caso de uso para que devuelva los datos de la lista.
 
 En PokemonController creo un nuevo atributo para el servicio añadido
+
+Añado la configuración para el nuevo caso de uso y su servicio.
