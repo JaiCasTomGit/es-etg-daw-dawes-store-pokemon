@@ -16,7 +16,7 @@ Spring Boot 4.1.1 con Spring Web y Lombok.
 ``` 
 Con la aplicaciñon arrancada:
 - Formulario de creación: <http://localhostl:8080/formulario-crear-pokemon.html>
-- Listado <http://localhost:8080/pookemos>
+- Listado <http://localhost:8080/pokemons>
 
 ## Endpoints
 | Método | URL         | Entrada                                  | Salida                         |
