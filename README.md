@@ -26,8 +26,17 @@ Con la aplicaciñon arrancada:
 
 ## Arquitectura
 #### Organización: Vertical Slicing
-Aplicación web con Spring Boot para gestionar las operativas de una tienda de Pokemon. El objetivo de la práctica es aplicar **Vertical Slicing** y **Clean Architecture sobre un caso sencillo: crear un Pokemon (`POST`) y listarlos(`GET`). 
+ Se aplica Spring Boot para gestionar las operativas de una tienda de Pokemon. El objetivo es aplicar **Vertical Slicing** y **Clean Architecture**. 
 
+## Limitaciones conocidas
+
+- Los datos del listado son **estáticos** (tres Pokemon fijos), asi como los pokemons creados; no hay persistencia por ahora.
+- La respuesta del POST es HTML escrito dentro del controlador; está previsto sustituirlo por plantillas.
+- El servicio actual solo reenvía la llamada al caso de uso; cobrará sentido cuando coordine varios.
+
+## Más documentación
+
+- [Guía de trabajo](documentation/guiadetrabajo.md)
 
 
 
