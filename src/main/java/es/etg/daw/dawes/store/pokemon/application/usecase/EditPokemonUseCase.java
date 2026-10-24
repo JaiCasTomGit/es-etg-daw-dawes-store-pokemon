@@ -2,7 +2,6 @@ package es.etg.daw.dawes.store.pokemon.application.usecase;
 
 import java.time.LocalDateTime;
 
-import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
 import es.etg.daw.dawes.store.pokemon.application.command.EditPokemonCommand;
 import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 

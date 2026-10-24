@@ -5,8 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
+import es.etg.daw.dawes.store.pokemon.application.command.EditPokemonCommand;
 import es.etg.daw.dawes.store.pokemon.application.service.CreatePokemonService;
 import es.etg.daw.dawes.store.pokemon.application.service.FindPokemonService;
+import es.etg.daw.dawes.store.pokemon.application.service.EditPokemonService;
 import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 import es.etg.daw.dawes.store.pokemon.infraestructure.mapper.PokemonMapper;
 import es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.dto.PokemonRequest;
@@ -16,7 +18,10 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller 
@@ -28,6 +33,8 @@ public class PokemonController {
     private final CreatePokemonService createPokemonService;
 
     private final FindPokemonService findPokemonService;
+
+    private final EditPokemonService editPokemonService;
 
     @PostMapping
     @ResponseBody
@@ -61,6 +68,13 @@ public class PokemonController {
                       .map(PokemonMapper::toResponse)
                       .toList();
     }
+
+    @PutMapping("/{id}")
+    public PokemonResponse editPokemon(@PathVariable int id, @RequestBody PokemonRequest pokemonRequest) {
+    EditPokemonCommand comando = PokemonMapper.toCommand(id, pokemonRequest);
+    Pokemon pokemon = editPokemonService.update(comando);
+      return PokemonMapper.toResponse(pokemon);
+}
     
 }
 

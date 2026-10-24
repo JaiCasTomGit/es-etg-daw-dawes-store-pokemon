@@ -16,6 +16,7 @@ public class EditPokemonService {
 
     public Pokemon update(EditPokemonCommand command) {
         return editPokemonUseCase.update(command);
+        
     }
     
 }
