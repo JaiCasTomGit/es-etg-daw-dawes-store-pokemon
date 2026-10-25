@@ -28,6 +28,6 @@ El trabajo se reparte **por caso de uso** (crear, listar, editar, eliminar), con
 
 ## Antes de dar por terminada una funcionalidad
 
-- [ ] La aplicación arranca y `./mvnw test` pasa
+- [ ] La aplicación arranca
 - [ ] El endpoint se ha probado
-- [ ] La documentación refleja el cambio (paso 8)
+- [ ] La documentación refleja el cambio 

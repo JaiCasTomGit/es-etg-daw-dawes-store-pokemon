@@ -12,8 +12,7 @@ cd es-etg-daw-dawes-store-pokemon
 ./mvnw spring-boot:run
 ```
 
-En Windows, usa `mvnw.cmd` en lugar de `./mvnw`. Para lanzar los tests: `./mvnw test`.
-
+En Windows, usa `mvnw.cmd` en lugar de `./mvnw`.
 Con la aplicación en marcha, estará disponible en `http://localhost:8080`:
 
 | Qué                  | Dónde                                    |
@@ -35,15 +34,7 @@ Con la aplicación en marcha, estará disponible en `http://localhost:8080`:
 
 La aplicación responde con una página que muestra los datos del Pokémon creado.
 
-**Desde la línea de comandos:**
 
-```bash
-curl -X POST http://localhost:8080/pokemons \
-  -d "nombre=Pikachu" \
-  -d "tipo=Eléctrico" \
-  -d "foto=https://ejemplo.com/pikachu.png" \
-  -d "precio=25.50"
-```
 
 ## Consultar el listado
 
@@ -77,7 +68,7 @@ La respuesta es el Pokémon en JSON, con el mismo formato que en el listado.
 
 ## Eliminar un Pokémon
 
-**Desde el navegador:** abre `/formulario-eliminar-pokemon.html`, escribe el identificador y pulsa **Eliminar Pokémon**.
+**Desde el navegador:** abre `http://localhost:8080/formulario-eliminar-pokemon.html`, escribe el identificador y pulsa **Eliminar Pokémon**.
 
 **Desde la línea de comandos:**
 
@@ -85,4 +76,3 @@ La respuesta es el Pokémon en JSON, con el mismo formato que en el listado.
 curl -i -X DELETE http://localhost:8080/pokemons/1
 ```
 
-La respuesta es `204`, sin contenido.
