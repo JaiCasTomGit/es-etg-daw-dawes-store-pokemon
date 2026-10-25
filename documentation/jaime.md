@@ -17,3 +17,8 @@ Posteriormente creo el servicio FindPokemonService, este tras la llamada del ser
 En PokemonController creo un nuevo atributo para el servicio añadido
 
 Añado la configuración para el nuevo caso de uso y su servicio.
+
+## Notas sobre Delete
+
+- Al montar el caso de uso de Delete ('DeletePokemonUseCase') todavia no se puede implementar realmente porque hay que implementarlo con un repositorio de datos.
+- Por el momento se quedará en el estado que está actualmente para las comprobaciones actuales.
