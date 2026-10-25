@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Controller 
-@RequestMapping ("/pokemons") //URL será /pokemons
+@RequestMapping ("/pokemons") 
 @RequiredArgsConstructor 
 
 public class PokemonController {
