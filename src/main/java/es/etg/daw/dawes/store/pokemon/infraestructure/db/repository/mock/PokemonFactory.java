@@ -1,0 +1,22 @@
+package es.etg.daw.dawes.store.pokemon.infraestructure.db.repository.mock;
+
+import java.time.LocalDateTime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
+
+public class PokemonFactory {
+    
+    public static final Map<Integer, Pokemon> getDemoData(){
+        Map<Integer, Pokemon> datos = new LinkedHashMap<>();
+
+        datos.put(0, new Pokemon(0, "Pokemon1", "tipo1", "1", 1, LocalDateTime.now()));
+
+        datos.put(0, new Pokemon(0, "Pokemon2", "tipo2", "2", 1, LocalDateTime.now()));
+
+        datos.put(0, new Pokemon(0, "Pokemon3", "tipo3", "3", 1, LocalDateTime.now()));
+
+        return datos;
+    }
+}
