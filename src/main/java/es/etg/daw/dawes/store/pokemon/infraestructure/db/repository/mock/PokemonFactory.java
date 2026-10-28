@@ -13,9 +13,9 @@ public class PokemonFactory {
 
         datos.put(0, new Pokemon(0, "Pokemon1", "tipo1", "1", 1, LocalDateTime.now()));
 
-        datos.put(0, new Pokemon(0, "Pokemon2", "tipo2", "2", 1, LocalDateTime.now()));
+        datos.put(1, new Pokemon(1, "Pokemon2", "tipo2", "2", 1, LocalDateTime.now()));
 
-        datos.put(0, new Pokemon(0, "Pokemon3", "tipo3", "3", 1, LocalDateTime.now()));
+        datos.put(2, new Pokemon(2, "Pokemon3", "tipo3", "3", 1, LocalDateTime.now()));
 
         return datos;
     }
