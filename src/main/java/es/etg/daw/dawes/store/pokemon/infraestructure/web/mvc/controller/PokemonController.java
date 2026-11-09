@@ -79,6 +79,7 @@ public class PokemonController {
     @GetMapping
     @ResponseBody 
     public List<PokemonResponse> allPokemon(){
+      if(true) throw new NullPointerException("Simulado para probar el advice");
       return findPokemonService.findAll()
               .stream()
                       .map(pokemonMapper::toResponse)
