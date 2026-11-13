@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor 
 public class CreatePokemonUseCase {
 
-    public PokemonRepository pokemonRepository;
+    private final PokemonRepository pokemonRepository;
 
     public Pokemon create( CreatePokemonCommand comando){
         

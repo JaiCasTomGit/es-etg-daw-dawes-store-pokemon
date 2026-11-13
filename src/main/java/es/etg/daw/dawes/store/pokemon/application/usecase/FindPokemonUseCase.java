@@ -19,7 +19,7 @@ public class FindPokemonUseCase {
         if(pokemons.isEmpty())
             throw new PokemonNotFoundException();
         
-        return pokemonRepository.getAll();
+        return pokemons;
     }
 
 }

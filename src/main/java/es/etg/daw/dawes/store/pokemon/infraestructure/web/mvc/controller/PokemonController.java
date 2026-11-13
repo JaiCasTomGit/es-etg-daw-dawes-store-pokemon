@@ -79,7 +79,6 @@ public class PokemonController {
     @GetMapping
     @ResponseBody 
     public List<PokemonResponse> allPokemon(){
-      if(true) throw new NullPointerException("Simulado para probar el advice");
       return findPokemonService.findAll()
               .stream()
                       .map(pokemonMapper::toResponse)
@@ -101,31 +100,5 @@ public class PokemonController {
       return pokemonMapper.toResponse(pokemon);
     }
     
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseBody
-    public String handleValidationExceptions(MethodArgumentNotValidException ex) {
-
-        StringBuilder html = new StringBuilder(256);
-        html.append("<!DOCTYPE html>")
-            .append("<html lang=\"es\"><head><meta charset=\"UTF-8\">")
-            .append("<title>Errores de validación</title></head><body>")
-            .append("<h1>Errores de validación</h1>")
-            .append("<ul>");
-
-        ex.getBindingResult().getAllErrors().forEach(error -> {
-            String field   = (error instanceof FieldError fe) ? fe.getField() : error.getObjectName();
-            String message = error.getDefaultMessage();
-
-            html.append("<li><strong>")
-                .append(HtmlUtils.htmlEscape(field))
-                .append("</strong>: ")
-                .append(HtmlUtils.htmlEscape(message))
-                .append("</li>");
-        });
-
-        html.append("</ul></body></html>");
-        return html.toString();
-    }
 }
 
