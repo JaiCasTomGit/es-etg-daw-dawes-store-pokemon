@@ -1,33 +1,38 @@
 # Guía de trabajo
 
-Cómo se trabaja en el proyecto. Las razones del diseño están en [Arquitectura](arquitectura.md).
+Convenciones del proyecto. Las razones del diseño están en [Arquitectura](arquitectura.md).
 
-## Reparto del trabajo
+## Reparto
 
-El trabajo se reparte **por caso de uso** (crear, listar, editar, eliminar), con una rama `feature/<acción><Entidad>` para cada uno. Gracias al vertical slicing, cada persona implementa su funcionalidad completa, de la petición HTTP al caso de uso, sin depender de que otros terminen su parte.
+El trabajo se reparte por caso de uso, con una rama `feature/<acción><Entidad>` para cada uno. El vertical slicing permite que cada persona lo implemente completo sin depender de las demás.
 
-## Añadir un caso de uso
+## Piezas de un caso de uso
 
-| Paso | Pieza           | Ubicación (bajo `pokemon/`)                             | Cuándo                                      |
-|------|-----------------|---------------------------------------------------------|---------------------------------------------|
-| 1    | Command         | `application/command`                                   | Si el caso de uso recibe datos              |
-| 2    | Caso de uso     | `application/usecase`                                   | Siempre                                     |
-| 3    | Servicio        | `application/service`                                   | Siempre                                     |
-| 4    | Beans           | `infraestructure/config/PokemonConfig`                  | Siempre: uno para el caso de uso y otro para el servicio |
-| 5    | DTO y mapper    | `infraestructure/web/mvc/dto`, `infraestructure/mapper` | Si cambian los datos que entran o salen     |
-| 6    | Endpoint        | `infraestructure/web/mvc/controller/PokemonController`  | Siempre                                     |
-| 7    | Formulario      | `src/main/resources/static`                             | Si se usa desde el navegador                |
-| 8    | Documentación   | `README.md` y `documentation/guiadeusuario.md`          | Siempre                                     |
+| Pieza                  | Ubicación (bajo `pokemon/`)                                     | Cuándo                         |
+|------------------------|-----------------------------------------------------------------|--------------------------------|
+| Command                | `application/command`                                           | Si recibe datos                |
+| Repositorio            | `domain/repository`, `infraestructure/db/repository`            | Si falta una consulta          |
+| Caso de uso            | `application/usecase`                                           | Siempre                        |
+| Servicio (`@Service`)  | `application/service`                                           | Siempre                        |
+| Bean                   | `infraestructure/config/PokemonConfig`                          | Siempre                        |
+| Request y validación   | `infraestructure/web/mvc/dto`, `infraestructure/web/validation` | Si cambia la entrada           |
+| Mapper                 | `infraestructure/mapper`                                        | Si cambian los datos           |
+| Endpoint               | `infraestructure/web/mvc/controller`                            | Siempre                        |
+| Errores                | `domain/error`, `common/infraestructure/web/error`              | Si hay un error nuevo          |
+| Formulario             | `src/main/resources/static`                                     | Si se usa desde el navegador   |
+| Documentación          | `README.md`, `documentation/guiadeusuario.md`                   | Siempre                        |
 
-`PokemonController`, `PokemonMapper` y `PokemonConfig` los modifica todo el mundo. Para reducir conflictos, añade tus métodos al final de cada fichero.
+`PokemonController`, `PokemonMapper`, `PokemonConfig`, `GlobalExceptionHandler` y `messages.properties` los toca todo el mundo: añade tus cambios al final de cada fichero.
 
 ## Convenciones
 
-- **Nombres:** `<Acción>Pokemon` seguido de `Command`, `UseCase` o `Service`.
-- **Paquetes:** `infraestructure` se escribe con «e», como en el resto del código.
+- **Nombres:** `<Acción>Pokemon` + `Command`, `UseCase` o `Service`.
+- **Paquetes:** `infraestructure`, con «e».
+- **Mensajes de validación:** `pokemon.valid.<campo>.<regla>`.
+- **`pom.xml`:** no reordenar los procesadores de anotaciones (Lombok, binding y MapStruct, en ese orden).
 
 ## Antes de dar por terminada una funcionalidad
 
 - [ ] La aplicación arranca
 - [ ] El endpoint se ha probado
-- [ ] La documentación refleja el cambio 
+- [ ] La documentación refleja el cambio
