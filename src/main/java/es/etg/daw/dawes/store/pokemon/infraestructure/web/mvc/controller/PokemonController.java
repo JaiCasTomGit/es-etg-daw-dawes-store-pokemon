@@ -1,13 +1,10 @@
 package es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.util.HtmlUtils;
+
 
 import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
 import es.etg.daw.dawes.store.pokemon.application.command.EditPokemonCommand;
@@ -24,9 +21,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,7 +59,7 @@ public class PokemonController {
             <html lang="es">
               <head>
                 <meta charset="UTF-8">
-                <title>Producto</title>
+                <title>Pokemon</title>
               </head>
               <body>
                 <h1>Pokemon: %s - %s</h1>
@@ -94,7 +89,7 @@ public class PokemonController {
 
     @PutMapping("/{id}")
     @ResponseBody 
-    public PokemonResponse editPokemon(@PathVariable int id, @RequestBody PokemonRequest pokemonRequest) {
+    public PokemonResponse editPokemon(@PathVariable int id, @Valid @RequestBody PokemonRequest pokemonRequest) {
     EditPokemonCommand comando = pokemonMapper.toCommand(id, pokemonRequest);
     Pokemon pokemon = editPokemonService.update(comando);
       return pokemonMapper.toResponse(pokemon);

@@ -1,6 +1,7 @@
 package es.etg.daw.dawes.store.pokemon.application.usecase;
 
 import es.etg.daw.dawes.store.pokemon.application.command.EditPokemonCommand;
+import es.etg.daw.dawes.store.pokemon.domain.error.PokemonNotFoundException;
 import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 import es.etg.daw.dawes.store.pokemon.domain.repository.PokemonRepository;
 import lombok.AllArgsConstructor;
@@ -11,17 +12,12 @@ public class EditPokemonUseCase {
     private final PokemonRepository pokemonRepository;
     
     public Pokemon update(EditPokemonCommand command) {
-        Pokemon resultado = null;
+        Pokemon pokemon = pokemonRepository.getById(command.id())
+            .orElseThrow(()-> new PokemonNotFoundException(command.id()));
 
-        Pokemon pokemon = pokemonRepository.getById(command.id()).orElse(null);
+        pokemon.setFoto(command.foto());
+        pokemon.setPrecio(command.precio());
 
-        if (pokemon != null){
-            pokemon.setFoto(command.foto());
-            pokemon.setPrecio(command.precio());
-            resultado = pokemonRepository.save(pokemon);
-        }
-
-
-        return resultado;
+        return pokemonRepository.save(pokemon);
     }
 }

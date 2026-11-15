@@ -55,7 +55,12 @@ public class PokemonRepositoryMockImpl implements PokemonRepository{
 
     @Override
     public Optional<Pokemon> getByName(String name) {
-        throw new UnsupportedOperationException("Método 'getByName' no implementado");
+        if (name == null){
+            return Optional.empty();
+        }
+        return pokemons.values().stream()
+            .filter(p -> name.equalsIgnoreCase(p.getNombre()))
+            .findFirst();
     }
     
 }

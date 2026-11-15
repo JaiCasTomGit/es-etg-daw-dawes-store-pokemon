@@ -38,6 +38,8 @@ Es un proyecto académico de DAW desarrollado en equipo.
 |-----------------------------|----------------------------------------------------------------------|
 | **Java 17**                 | Versión mínima que exige Spring Boot 4                               |
 | **Spring Boot 4.1.1** (Web MVC) | Servidor web, rutas e inyección de dependencias ya integrados    |
+| **Spring Boot Validation**  | Validación de peticiones y reglas personalizadas                     |
+| **MapStruct 1.6.3**         | Conversión automática en compilación entre DTOs, comandos y dominio  |
 | **Lombok**                  | Elimina código repetitivo: getters, constructores y builders         |
 | **Maven**                   | Gestión de dependencias y construcción, con wrapper para no instalarlo |
 

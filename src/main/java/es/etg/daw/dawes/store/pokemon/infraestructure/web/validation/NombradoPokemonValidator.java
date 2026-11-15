@@ -6,15 +6,12 @@ import jakarta.validation.ConstraintValidatorContext;
 
 public class NombradoPokemonValidator implements ConstraintValidator<NombradoPokemon, String>{
 
-    public final static String STR_BLANCO = " ";
-    public final static String STR_SALTO = "\n";
+    private static final String STR_BLANCO = " ";
+    private static final String STR_SALTO = "\n";
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
       
-        if(value == null || value.length()==0 || value.contains(STR_BLANCO) || value.contains(STR_SALTO))
-            return false;
-        
-        return true;
+        return value == null || value.isEmpty() || (!value.contains (STR_BLANCO) && !value.contains(STR_SALTO)); 
     } 
 }
