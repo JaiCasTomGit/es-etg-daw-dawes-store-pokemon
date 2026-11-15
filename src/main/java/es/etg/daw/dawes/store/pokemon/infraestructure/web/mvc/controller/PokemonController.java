@@ -1,13 +1,10 @@
 package es.etg.daw.dawes.store.pokemon.infraestructure.web.mvc.controller;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.util.HtmlUtils;
+
 
 import es.etg.daw.dawes.store.pokemon.application.command.CreatePokemonCommand;
 import es.etg.daw.dawes.store.pokemon.application.command.EditPokemonCommand;
@@ -53,7 +50,7 @@ public class PokemonController {
     public String createPokemon(
       @Valid 
       PokemonRequest request) {
-        CreatePokemonCommand commando = pokemonMapper.toCommand(request); //cambiar pokemonMapper's hacer ahora en breve cuando acabe el resto de correcciones
+        CreatePokemonCommand commando = pokemonMapper.toCommand(request);
 
         Pokemon pokemon = createPokemonService.createPokemon(commando);
         
@@ -62,7 +59,7 @@ public class PokemonController {
             <html lang="es">
               <head>
                 <meta charset="UTF-8">
-                <title>Producto</title>
+                <title>Pokemon</title>
               </head>
               <body>
                 <h1>Pokemon: %s - %s</h1>
