@@ -14,7 +14,6 @@ public class CreatePokemonService {
     private final CreatePokemonUseCase createPokemonUseCase;
 
     public Pokemon createPokemon(CreatePokemonCommand comando){
-        Pokemon pokemon = createPokemonUseCase.create(comando);
-        return pokemon;
+        return createPokemonUseCase.create(comando);
     }
 }

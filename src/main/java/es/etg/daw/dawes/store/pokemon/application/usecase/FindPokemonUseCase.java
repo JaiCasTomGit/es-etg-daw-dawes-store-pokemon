@@ -7,6 +7,7 @@ import es.etg.daw.dawes.store.pokemon.domain.model.Pokemon;
 import es.etg.daw.dawes.store.pokemon.domain.repository.PokemonRepository;
 import lombok.AllArgsConstructor;
 
+
 @AllArgsConstructor 
 public class FindPokemonUseCase {
 

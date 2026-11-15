@@ -1,35 +1,47 @@
 package es.etg.daw.dawes.store.common.infraestructure.web.error;
 
 import java.time.LocalDateTime;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.util.HtmlUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+
+import es.etg.daw.dawes.store.pokemon.domain.error.EntityNotFoundException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
 
-    //Aquí procesamos las excpciones de tipo NullPointer que se den en toda la aplicación de forma global.
-	@ExceptionHandler(NullPointerException.class)
-	public ResponseEntity<String> nullPointerHandler(NullPointerException nfe) {
-        String msg = nfe.getMessage();
-		CustomResponse cr = new CustomResponse(LocalDateTime.now(), HttpStatus.INTERNAL_SERVER_ERROR, msg);
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<String> validationHandler(MethodArgumentNotValidException ex) {
+        return buildHtmlResponse(HttpStatus.BAD_REQUEST, "Error de validación");
+    }
 
-        String html = buildErrorHtml(cr);
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<String> entityNotFoundHandler(EntityNotFoundException ex) {
+        return buildHtmlResponse(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<String> nullPointerHandler(NullPointerException nfe) {
+        return buildHtmlResponse(HttpStatus.INTERNAL_SERVER_ERROR, nfe.getMessage());
+    }
 
-		return ResponseEntity
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> exceptionHandler(Exception ex) {
+        return buildHtmlResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
+    }
+
+    private ResponseEntity<String> buildHtmlResponse(HttpStatus status, String msg) {
+        CustomResponse cr = new CustomResponse(LocalDateTime.now(), status, msg);
+        return ResponseEntity
                 .status(cr.getStatus())
-                .contentType(MediaType.TEXT_HTML) // Necesario para que el navegador sepa el formato de la respuesta (html)
-                .body(html);
-	}
+                .contentType(MediaType.TEXT_HTML)
+                .body(buildErrorHtml(cr));
+    }
 
     private String buildErrorHtml(CustomResponse cr) {
         return """

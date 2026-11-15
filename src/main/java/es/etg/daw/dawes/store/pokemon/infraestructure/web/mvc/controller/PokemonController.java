@@ -24,9 +24,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +53,7 @@ public class PokemonController {
     public String createPokemon(
       @Valid 
       PokemonRequest request) {
-        CreatePokemonCommand commando = pokemonMapper.toCommand(request);
+        CreatePokemonCommand commando = pokemonMapper.toCommand(request); //cambiar pokemonMapper's hacer ahora en breve cuando acabe el resto de correcciones
 
         Pokemon pokemon = createPokemonService.createPokemon(commando);
         
@@ -94,7 +92,7 @@ public class PokemonController {
 
     @PutMapping("/{id}")
     @ResponseBody 
-    public PokemonResponse editPokemon(@PathVariable int id, @RequestBody PokemonRequest pokemonRequest) {
+    public PokemonResponse editPokemon(@PathVariable int id, @Valid @RequestBody PokemonRequest pokemonRequest) {
     EditPokemonCommand comando = pokemonMapper.toCommand(id, pokemonRequest);
     Pokemon pokemon = editPokemonService.update(comando);
       return pokemonMapper.toResponse(pokemon);
